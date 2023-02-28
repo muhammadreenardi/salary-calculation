@@ -10,9 +10,10 @@ import id.co.test.service.entity.Employee;
 
 @Repository
 public interface EmployeeInterface extends JpaRepository<Employee, String> {
+
+	Employee findByNik(String nik) throws Exception;
+
+	@Query(value = "SELECT * FROM EMPLOYEE WHERE nik LIKE %?1% OR full_name LIKE %?1%", nativeQuery = true)
+	List<Employee> findBySearching(String search) throws Exception;
 	
-    Employee findByNik(String nik) throws Exception;
-    
-    @Query(value = "SELECT * FROM EMPLOYEE WHERE nik LIKE %?1% OR full_name LIKE %?1%", nativeQuery = true)
-    List<Employee> findBySearching(String search) throws Exception;
 }

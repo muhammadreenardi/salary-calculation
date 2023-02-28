@@ -1,45 +1,16 @@
-package id.co.test.service.entity;
+package id.co.test.service.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "EMPLOYEE_SALARY")
-public class EmployeeSalaryData {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
-    
-    @OneToOne
-    @JoinColumn(name = "nik")
-	private Employee employee;
-    
+public class GetSalaryDetail {
+	
     private BigDecimal pokok;
 	private BigDecimal tunjangan;
 	private BigDecimal bonus;
 	private BigDecimal potongan;
 	private BigDecimal pajak;
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public Employee getEmployee() {
-		return employee;
-	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
+	private BigDecimal nett;
+	private BigDecimal persentasePengurangan;
 	public BigDecimal getPokok() {
 		return pokok;
 	}
@@ -70,6 +41,19 @@ public class EmployeeSalaryData {
 	public void setPajak(BigDecimal pajak) {
 		this.pajak = pajak;
 	}
+	public BigDecimal getNett() {
+		return nett;
+	}
+	public void setNett(BigDecimal nett) {
+		this.nett = nett;
+	}
+	public BigDecimal getPersentasePengurangan() {
+		return persentasePengurangan;
+	}
+	public void setPersentasePengurangan(BigDecimal persentasePengurangan) {
+		this.persentasePengurangan = persentasePengurangan;
+	}
 	
 	
+
 }

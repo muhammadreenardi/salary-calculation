@@ -19,7 +19,7 @@ public class EmployeeController {
 	private EmployeeRepository repo;
 
 	@RequestMapping(value = "/GetEmployeeList", method = RequestMethod.GET)
-	public String doGetDocumentPendukungList(
+	public String doGetEmployeeList(
 			@RequestParam(name = "search", required = false) String search) {		
 		return repo.doGetEmployeeList(search);
 	}
@@ -27,5 +27,11 @@ public class EmployeeController {
 	@RequestMapping(value = "/SaveEmployeeData", method = RequestMethod.POST)
 	public String doSaveEmployee(@RequestBody SaveEmployeeData request) {
 		return repo.doSaveEmployee(request);
+	}
+	
+	@RequestMapping(value = "/GetEmployeeDetail", method = RequestMethod.GET)
+	public String doGetEmployeeDetail(
+			@RequestParam(name = "nik", required = true) String nik) {		
+		return repo.doGetEmployeeDetail(nik);
 	}
 }
